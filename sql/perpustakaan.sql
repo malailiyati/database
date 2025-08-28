@@ -1,3 +1,6 @@
+CREATE DATABASE exercises;
+\c exercises;
+
 CREATE TABLE Categories (
     id serial PRIMARY KEY,
     name VARCHAR(100) UNIQUE NOT NULL
@@ -5,12 +8,12 @@ CREATE TABLE Categories (
 
 CREATE TABLE Members (
     id serial PRIMARY KEY,
-    name VARCHAR(100) UNIQUE NOT NULL
+    name VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Librarians (
     id serial PRIMARY KEY,
-    name VARCHAR(100) UNIQUE NOT NULL
+    name VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Bookshelves (
@@ -21,8 +24,8 @@ CREATE TABLE Bookshelves (
 
 CREATE TABLE Books (
     id serial PRIMARY KEY,
-    title VARCHAR(150) UNIQUE NOT NULL,
-    autor VARCHAR(100) UNIQUE NOT NULL,
+    title VARCHAR(250) NOT NULL,
+    autor VARCHAR(150) NOT NULL,
     category_id int REFERENCES public.Categories (id),
     bookshelve_id int REFERENCES public.Bookshelves (id)
 );
